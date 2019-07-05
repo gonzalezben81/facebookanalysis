@@ -42,7 +42,7 @@ facebook_message_pull <- function(folder){
 
     message_content<- as.character(text_messages$content)
 
-    text_sender<- text$messages$sender_name
+    text_sender<- text$messages$sender_name[1]
 
     text_content <- text$messages$content
     unique_sender<- unique(text_sender)
@@ -62,15 +62,13 @@ facebook_message_pull <- function(folder){
     }else{
       name<- gsub(pattern = './facebookmessages/messages/inbox/',replacement = "",x = f)
       name <- gsub(pattern = "_.*",replacement = "",x = name)
-      write.table(x = message_content,file = paste0('./messages/',name,'.txt'))
-      write.csv(x = unique_sender_one,file = paste0('./messages/',unique_sender[1],'.csv'))
-      write.csv(x = unique_sender_two,file = paste0('./messages/',unique_sender[2],'.csv'))
+      write.table(x = message_content,file = paste0('./messages/',unique_sender,'.txt'))
+      # write.csv(x = unique_sender_one,file = paste0('./messages/',unique_sender[1],'.csv'))
+      # write.csv(x = unique_sender_two,file = paste0('./messages/',unique_sender[2],'.csv'))
     }
 
-    print(paste0(name," facebook messages created."))
-
+    print(paste0(unique_sender," facebook messages created."))
   }
-  # return(message_content)
-  # print(paste0(name," facebook messages created."))
+
 
 }

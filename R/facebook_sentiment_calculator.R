@@ -104,6 +104,7 @@ facebook_sentiment_calculator <- function(folder){
         main = paste0(toupper(name)," Positive vs. Negative Sentiment"),
         col = "blue"
       )
+      text(barplot_two, 0, round(sort(colSums(prop.table(value[, 1:8]))), 2),cex=1,pos=3)
       # Close the pdf file
       dev.off()
       myfile_path<- file.path(".","image",paste0(name,"emotional sentiment.pdf"))
@@ -117,6 +118,7 @@ facebook_sentiment_calculator <- function(folder){
         col = "lightgreen"
 
       )
+      text(barplot_one, 0, round(sort(colSums(prop.table(value[, 1:8]))), 2),cex=1,pos=3)
       dev.off()
 
 

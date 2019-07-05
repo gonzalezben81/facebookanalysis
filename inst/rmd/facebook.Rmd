@@ -1,0 +1,61 @@
+---
+title: "Facebook Report"
+author: "Current User"
+date: "July 1, 2019"
+output: pdf_document
+time: !r Sys.time()
+params:
+  table: NA
+  sentiment: NA
+---
+
+```{r setup, include=FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA)
+```
+
+\begin{center}
+Facebook Analysis Report
+\end{center}
+
+```{r,echo=FALSE}
+table_one<- params$table
+pander::pandoc.table(table_one)
+
+```
+
+```{r,echo=FALSE,warning=FALSE}
+table_two <- params$table
+sentiment<- params$sentiment
+    if(is.na(sentiment$Percentages)){
+      print("No bar plot created")
+    }else{
+     barplot_one<- barplot(
+        sort(colSums(prop.table(table_two[, 1:8]))),
+        cex.names = 0.7,
+        las = 1,
+        main = paste0(toupper(name)," Emotional Sentiment by Word"),
+        col = "lightgreen"
+
+      )
+     text(barplot_one, 0, round(sort(colSums(prop.table(value[, 1:8]))), 1),cex=1,pos=3) 
+    }
+```
+
+```{r,echo=FALSE,warning=FALSE}
+table_three <- params$table
+sentiment<- params$sentiment
+    if(is.na(sentiment$Percentages)){
+      print("No bar plot created")
+    }else{
+     barplot_one<- barplot(
+        sort(colSums(prop.table(table_three[, 9:10]))),
+        cex.names = 0.7,
+        las = 1,
+        main = paste0(toupper(name)," Emotional Sentiment by Word"),
+        col = "lightgreen"
+
+      )
+     text(barplot_one, 0, round(sort(colSums(prop.table(value[, 9:10]))), 1),cex=1,pos=3) 
+    }
+```
