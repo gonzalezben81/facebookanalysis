@@ -9,6 +9,9 @@ facebook_sentiment_calculator(folder)
 \arguments{
 \item{data}{filepath to data}
 }
+\value{
+sentiment analysis
+}
 \description{
 Facebook: Sentiment Calculator
 }

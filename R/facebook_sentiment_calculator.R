@@ -19,7 +19,7 @@
 #'
 #' @param data filepath to data
 #' @keywords facebook_sentiment_calculator
-#' @return
+#' @return sentiment analysis
 #' @name facebook_sentiment_calculator
 #' @title facebook_sentiment_calculator
 #' @examples
@@ -31,6 +31,7 @@
 #'   facebook_sentiment_calculator(folder = 'messages')
 #'
 #' @export
+
 
 
 
@@ -104,7 +105,8 @@ facebook_sentiment_calculator <- function(folder){
         main = paste0(toupper(name)," Positive vs. Negative Sentiment"),
         col = "blue"
       )
-      text(barplot_two, 0, round(sort(colSums(prop.table(value[, 1:8]))), 2),cex=1,pos=3)
+
+      text(barplot_two, 0, round(sort(colSums(prop.table(value[, 9:10]))), 2),cex=1,pos=3)
       # Close the pdf file
       dev.off()
       myfile_path<- file.path(".","image",paste0(name,"emotional sentiment.pdf"))
@@ -125,14 +127,14 @@ facebook_sentiment_calculator <- function(folder){
 
     }
     ##Render the rmarkdown report
-    rmarkdown::render(input = "./facebook.Rmd",params = list(table = value,
+    rmarkdown::render(input = "~\\R\\win-library\\3.5\\facebookanalysis\\rmd\\facebook.Rmd",params = list(table = value,
                                                              sentiment = sentimentscores),
                       output_file = paste0(name," Rmarkdown"),
                       output_dir = "nrc_sentiment",quiet = TRUE,clean = TRUE)
-    ##Print out what .dxf report has been rendered
-    print(paste0("Facebook Analysis Report for ",paste0(toupper(name)," pdf file created")))
+    ##Print out what facebook report has been rendered
+    print(paste0("Facebook Analysis Report for ",paste0(name," pdf file created")))
     ##Print the name of the facebook sentiment scores being created
-    print(paste0(stringr::str_to_title(name)," facebook messages created."))
+    print(paste0(name," facebook messages created."))
 
   }
 

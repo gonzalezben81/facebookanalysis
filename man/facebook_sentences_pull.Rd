@@ -10,6 +10,9 @@ facebook_pull_sentences(folder)
 \arguments{
 \item{data}{filepath to data}
 }
+\value{
+facebook sentences
+}
 \description{
 Facebook: Sentiment Calculator
 }

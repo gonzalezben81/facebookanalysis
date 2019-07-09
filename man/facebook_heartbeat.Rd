@@ -12,6 +12,9 @@ facebook_heartbeat(folder)
 \arguments{
 \item{data}{filepath to data}
 }
+\value{
+Sentiment image showing valence of message
+}
 \description{
 Facebook: Sentiment Calculator
 }

@@ -17,7 +17,7 @@
 #'
 #' @param data filepath to data
 #' @keywords facebook_sentences_pull
-#' @return
+#' @return facebook sentences
 #' @name facebook_sentences_pull
 #' @title facebook_sentences_pull
 #' @examples

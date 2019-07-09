@@ -7,21 +7,26 @@
 facebook_message_pull(folder)
 }
 \arguments{
-\item{data}{filepath to data}
+\item{folder}{filepath to data}
+}
+\value{
+facebook message conversation to a .csv file
 }
 \description{
-Facebook: Message Pull
+Facebook: Message Conversation Extractor
 }
 \details{
-This function pulls the data from the Facebook zip folder that is downloaded when you retrieve the contents of your data.
-Then the data is placed inside of a message folder
+This function pulls the sentences from your messages folder and places them in a handy .csv file for analysis.
+The participants, timestamp, and content of the messages are pulled out and placed in the .csv file that is created.
+The .csv file is names for the participant you have been messaging.
 }
 \examples{
+#' @source \\url{http://lib.stat.cmu.edu/datasets/detroit}
 Load the facebookanalysis library
 
 library(facebookanalysis)
 
-  facebook_message_pull(folder = './facebookmessages/messages/inbox/')
+  facebook_message_pull(folder = 'messages')
 
 }
 \keyword{facebook_message_pull}

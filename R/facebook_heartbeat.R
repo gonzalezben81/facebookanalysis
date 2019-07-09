@@ -20,7 +20,7 @@
 #'
 #' @param data filepath to data
 #' @keywords facebook_heartbeat
-#' @return
+#' @return Sentiment image showing valence of message
 #' @name facebook_heartbeat
 #' @title facebook_heartbeat
 #' @examples
