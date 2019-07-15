@@ -6,7 +6,7 @@ Author: Ben Gonzalez
 Maintainer: Ben Gonzalez <gonzalezben81@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: tm, stringr, syuzhet

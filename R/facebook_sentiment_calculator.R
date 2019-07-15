@@ -5,7 +5,7 @@
 #   http://r-pkgs.had.co.nz/
 #
 # Some useful keyboard shortcuts for package authoring:
-#
+
 #   Build and Reload Package:  'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:   'Ctrl + Shift + T'
@@ -81,7 +81,7 @@ facebook_sentiment_calculator <- function(folder){
       ##Create the file name from the filelist and name the .csv file this way
       name<- gsub(pattern = './messages',replacement = "",x = file_name)
       name <- gsub(pattern = ".txt*",replacement = "",x = name)
-      write.csv(x = sentimentscores,file = paste0('./nrc_sentiment/',name,'.csv'))
+      # write.csv(x = sentimentscores,file = paste0('./nrc_sentiment/',name,'.csv'))
     }
 
     if(is.na(sentimentscores$Percentages)){
@@ -128,7 +128,8 @@ facebook_sentiment_calculator <- function(folder){
     }
     ##Render the rmarkdown report
     rmarkdown::render(input = "~\\R\\win-library\\3.5\\facebookanalysis\\rmd\\facebook.Rmd",params = list(table = value,
-                                                             sentiment = sentimentscores),
+                                                             sentiment = sentimentscores,
+                                                             documents = docs),
                       output_file = paste0(name," Rmarkdown"),
                       output_dir = "nrc_sentiment",quiet = TRUE,clean = TRUE)
     ##Print out what facebook report has been rendered

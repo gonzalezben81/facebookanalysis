@@ -86,8 +86,8 @@ facebook_message_pull <- function(folder){
       name<- gsub(pattern = './facebookmessages/messages/inbox/',replacement = "",x = f)
       name <- gsub(pattern = "_.*",replacement = "",x = name)
       write.table(x = message_content,file = paste0('./messages/',name,'.txt'))
-      write.csv(x = unique_sender_one,file = paste0('./messages/',name,'_sentences.csv'))
-      write.csv(x = unique_sender_two,file = paste0('./messages/',name,'_',text_sender_two,'.csv'))
+      # write.csv(x = unique_sender_one,file = paste0('./messages/',name,'_sentences.csv'))
+      # write.csv(x = unique_sender_two,file = paste0('./messages/',name,'_',text_sender_two,'.csv'))
     }
 
     print(paste0(name," facebook messages created."))

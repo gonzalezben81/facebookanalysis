@@ -7,6 +7,7 @@ time: !r Sys.time()
 params:
   table: NA
   sentiment: NA
+  documents: NA
 ---
 
 ```{r setup, include=FALSE}
@@ -59,3 +60,18 @@ sentiment<- params$sentiment
      text(barplot_one, 0, round(sort(colSums(prop.table(value[, 9:10]))), 1),cex=1,pos=3) 
     }
 ```
+
+
+```{r,echo=FALSE,warning=FALSE}
+    docs<- params$docs
+    s_v <- get_sentences(docs)
+    s_v_sentiment <- get_sentiment(s_v)
+    plot(
+      s_v_sentiment,
+      type="l",
+      main= paste0(name," Messenger Timeline"),
+      xlab = "Messenger Timeline",
+      ylab= "Emotional Valence"
+    )
+```
+
