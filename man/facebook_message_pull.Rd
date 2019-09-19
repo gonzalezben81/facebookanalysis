@@ -3,9 +3,6 @@
 \name{facebook_message_pull}
 \alias{facebook_message_pull}
 \title{facebook_message_pull}
-\usage{
-facebook_message_pull(folder)
-}
 \arguments{
 \item{folder}{filepath to data}
 }
@@ -18,15 +15,14 @@ Facebook: Message Conversation Extractor
 \details{
 This function pulls the sentences from your messages folder and places them in a handy .csv file for analysis.
 The participants, timestamp, and content of the messages are pulled out and placed in the .csv file that is created.
-The .csv file is names for the participant you have been messaging.
+The .csv file is names for the participant you have been messaging. The function also pulls the date and time from the Json file
+and converts it and writes the Sender, Time, and Content of the message to an .xlsx file.
 }
 \examples{
-#' @source \\url{http://lib.stat.cmu.edu/datasets/detroit}
-Load the facebookanalysis library
 
 library(facebookanalysis)
 
-  facebook_message_pull(folder = 'messages')
+\dontrun{   facebook_message_pull(folder = 'messages')}
 
 }
 \keyword{facebook_message_pull}

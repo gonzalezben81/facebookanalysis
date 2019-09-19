@@ -9,7 +9,7 @@
 #   Build and Reload Package:  'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:   'Ctrl + Shift + T'
-#' Facebook: Sentiment Calculator
+#' Facebook: Heartbeat Creator
 #'
 #' This function pulls the data from your messages folder created by the facebook_message_pull function.
 #' The sentiment of the data is then calculated and a "heartbeat" chart is created. The chart spans the entire length of the
@@ -22,28 +22,26 @@
 #' @keywords facebook_heartbeat
 #' @return Sentiment image showing valence of message
 #' @name facebook_heartbeat
+#' @aliases facebook_heartbeat
+#' @usage {facebook_heartbeat(folder = 'messages')}
 #' @title facebook_heartbeat
 #' @examples
 #'
-#' Load the facebookanalysis library
-#'
 #' library(facebookanalysis)
 #'
-#'   facebook_heartbeat(folder = 'messages')
+#'\dontrun{   facebook_heartbeat(folder = 'messages')}
 #'
-#' @source \url{http://nlp.stanford.edu/software/corenlp.shtml}
 #' @export
 
 
 
-
-
-
 facebook_heartbeat <- function(folder){
-
-  require(tm,quietly = TRUE)
-  require(stringr,quietly = TRUE)
-  require(syuzhet,quietly = TRUE)
+  # require(tm,quietly = TRUE)
+  # require(syuzhet,quietly = TRUE)
+  # require(stringr,quietly = TRUE)
+  # requireNamespace("tm",quietly = TRUE)
+  # requireNamespace('stringr',quietly = TRUE)
+  # requireNamespace('syuzhet',quietly = TRUE)
 
   filelist <- list.files(path = paste0("./",folder),pattern = '.txt', full.names = TRUE)
   # print(filelist)

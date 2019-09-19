@@ -1,1 +1,4 @@
 exportPattern("^[[:alpha:]]+")
+importFrom("graphics", "barplot", "text")
+importFrom("utils", "unzip", "write.csv", "write.table")
+

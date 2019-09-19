@@ -4,7 +4,7 @@
 \alias{facebook_sentiment_calculator}
 \title{facebook_sentiment_calculator}
 \usage{
-facebook_sentiment_calculator(folder)
+folder
 }
 \arguments{
 \item{data}{filepath to data}
@@ -13,21 +13,12 @@ facebook_sentiment_calculator(folder)
 sentiment analysis
 }
 \description{
-Facebook: Sentiment Calculator
-}
-\details{
-This function pulls the data from your messages folder created by the facebook_message_pull function.
-The sentiment of the data is then calculated and written to a pdf file which has bar charts and a sentiment table.
-The sentiments the data pulls are: surprise, disgust, sadness, anticipation, joy, fear, anger, and trust. The data also
-pulls the positive and negative percentage of the messages as well.
+facebook_sentiment_calculator
 }
 \examples{
-#' @source \\url{http://lib.stat.cmu.edu/datasets/detroit}
-Load the facebookanalysis library
 
 library(facebookanalysis)
 
-  facebook_sentiment_calculator(folder = 'messages')
-
+\dontrun{   facebook_sentiment_calculator(folder = 'messages')}
 }
 \keyword{facebook_sentiment_calculator}

@@ -21,20 +21,23 @@
 #' @name facebook_sentences_pull
 #' @title facebook_sentences_pull
 #' @examples
-#' #' @source \url{http://lib.stat.cmu.edu/datasets/detroit}
-#' Load the facebookanalysis library
 #'
 #' library(facebookanalysis)
 #'
-#'   facebook_sentences_pull(folder = 'messages')
+#'\dontrun{   facebook_sentences_pull(folder = 'messages')}
 #'
 #' @export
 
-facebook_pull_sentences <- function(folder){
+utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSource","get_sentences","get_sentiment","pdf","plot","dev.off",
+                         "png","head","write.table","write.csv","createWorkbook","addWorksheet","createStyle","addStyle","writeData","saveWorkbook",
+                         "write.csv","get_nrc_sentiment","barplot","text","unzip","writeData"))
+#' @export
+facebook_sentences_pull <- function(folder){
 
-  require(tm,quietly = TRUE)
-  require(stringr,quietly = TRUE)
-  require(syuzhet,quietly = TRUE)
+  # require(tm,quietly = TRUE)
+  # requireNamespace('tm',quietly = TRUE)
+  # requireNamespace('stringr',quietly = TRUE)
+  # requireNamespace('syuzhet',quietly = TRUE)
 
   filelist <- list.files(path = paste0("./",folder),pattern = '.txt', full.names = TRUE)
   # print(filelist)

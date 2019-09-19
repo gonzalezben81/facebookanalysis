@@ -3,9 +3,6 @@
 \name{facebook_unzip}
 \alias{facebook_unzip}
 \title{facebook_unzip}
-\usage{
-facebook_unzip(path)
-}
 \arguments{
 \item{data}{filepath to data}
 }
@@ -20,11 +17,10 @@ This function unzips the Facebook zip folder that is downloaded when you retriev
 Then the data is placed inside of a facebookmessages folder
 }
 \examples{
-Load the facebookanalysis library
 
 library(facebookanalysis)
 
-  facebook_unzip(path = "./facebook.zip")
+\dontrun{   facebook_unzip(path = "./facebook.zip")}
 
 }
 \keyword{facebook_unzip}

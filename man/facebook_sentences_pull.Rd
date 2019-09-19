@@ -2,11 +2,7 @@
 % Please edit documentation in R/facebook_sentences_pull.R
 \name{facebook_sentences_pull}
 \alias{facebook_sentences_pull}
-\alias{facebook_pull_sentences}
 \title{facebook_sentences_pull}
-\usage{
-facebook_pull_sentences(folder)
-}
 \arguments{
 \item{data}{filepath to data}
 }
@@ -21,12 +17,10 @@ This function pulls the sentences from your messages folder created by the faceb
 The sentences are then placed in a csv file and written to the nrc_sentences folder that is created by the function.
 }
 \examples{
-#' @source \\url{http://lib.stat.cmu.edu/datasets/detroit}
-Load the facebookanalysis library
 
 library(facebookanalysis)
 
-  facebook_sentences_pull(folder = 'messages')
+\dontrun{   facebook_sentences_pull(folder = 'messages')}
 
 }
 \keyword{facebook_sentences_pull}

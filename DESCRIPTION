@@ -1,14 +1,13 @@
 Package: facebookanalysis
 Type: Package
-Title: Analyses the emotional sentiment of Facebook message data.
+Title: Analyses the emotional sentiment of Facebook message data
 Version: 0.1.0
 Author: Ben Gonzalez
 Maintainer: Ben Gonzalez <gonzalezben81@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: MIT
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: tm, stringr, syuzhet, openxlsx
-Depends: tm, stringr, syuzhet, openxlsx
+Imports: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown
 RoxygenNote: 6.1.1

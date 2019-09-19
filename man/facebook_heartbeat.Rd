@@ -3,11 +3,8 @@
 \name{facebook_heartbeat}
 \alias{facebook_heartbeat}
 \title{facebook_heartbeat}
-\source{
-\url{http://nlp.stanford.edu/software/corenlp.shtml}
-}
 \usage{
-facebook_heartbeat(folder)
+{facebook_heartbeat(folder = 'messages')}
 }
 \arguments{
 \item{data}{filepath to data}
@@ -16,7 +13,7 @@ facebook_heartbeat(folder)
 Sentiment image showing valence of message
 }
 \description{
-Facebook: Sentiment Calculator
+Facebook: Heartbeat Creator
 }
 \details{
 This function pulls the data from your messages folder created by the facebook_message_pull function.
@@ -28,11 +25,9 @@ conversation that is present in your messenger data.
 }
 \examples{
 
-Load the facebookanalysis library
-
 library(facebookanalysis)
 
-  facebook_heartbeat(folder = 'messages')
+\dontrun{   facebook_heartbeat(folder = 'messages')}
 
 }
 \keyword{facebook_heartbeat}

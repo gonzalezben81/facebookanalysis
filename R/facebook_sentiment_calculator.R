@@ -18,28 +18,53 @@
 #'
 #'
 #' @param data filepath to data
-#' @keywords facebook_sentiment_calculator
-#' @return sentiment analysis
-#' @name facebook_sentiment_calculator
-#' @title facebook_sentiment_calculator
+#' @keywords clean_text
+#' @return Text that has been cleaned e.g. special characters and certain punctuation removed.
+#' @name clean_text
+#' @title clean_text
 #' @examples
-#' #' @source \url{http://lib.stat.cmu.edu/datasets/detroit}
-#' Load the facebookanalysis library
 #'
 #' library(facebookanalysis)
 #'
-#'   facebook_sentiment_calculator(folder = 'messages')
+#'\dontrun{   clean_text(text)}
 #'
 #' @export
 
 
+utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSource","get_sentences","get_sentiment","pdf","plot","dev.off",
+                         "png","head","write.table","write.csv","createWorkbook","addWorksheet","createStyle","addStyle","writeData","saveWorkbook",
+                         "write.csv","get_nrc_sentiment","barplot","text","unzip","writeData"))
 
 
+#' @export
+clean_text <- function(text){
+  text <- text
+  cleaned <- tm::stripWhitespace(x = text)
+  cleaned <- tm::removePunctuation(x = cleaned)
+  clean <- removeWords(x = cleaned,words = stopwords(kind = 'en'))
+  clean
+  return(clean)
+
+
+}
+
+#' @param data filepath to data
+#' @keywords facebook_sentiment_calculator
+#' @return sentiment analysis
+#' @name facebook_sentiment_calculator
+#' @title facebook_sentiment_calculator
+#' @usage folder
+#' @usage messages
+#' @examples
+#'
+#' library(facebookanalysis)
+#'
+#'\dontrun{   facebook_sentiment_calculator(folder = 'messages')}
 facebook_sentiment_calculator <- function(folder){
 
-  require(tm,quietly = TRUE)
-  require(stringr,quietly = TRUE)
-  require(syuzhet,quietly = TRUE)
+  # requireNamespace('tm',quietly = TRUE)
+  # requireNamespace('stringr',quietly = TRUE)
+  # requireNamespace('syuzhet',quietly = TRUE)
 
   filelist <- list.files(path = paste0("./",folder),pattern = '.txt', full.names = TRUE)
   # print(filelist)
@@ -56,6 +81,8 @@ facebook_sentiment_calculator <- function(folder){
     file_name <- filelist[f]
     # print(paste0(file_name," printed"))
     ##Get NRC Sentiment from the ith (f) text file
+
+    docs<- clean_text(docs)
     value <- get_nrc_sentiment(docs)
     # print(value)
     ##Create

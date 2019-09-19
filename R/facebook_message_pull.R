@@ -23,22 +23,23 @@
 #' @name facebook_message_pull
 #' @title facebook_message_pull
 #' @examples
-#' #' @source \url{http://lib.stat.cmu.edu/datasets/detroit}
-#' Load the facebookanalysis library
 #'
 #' library(facebookanalysis)
 #'
-#'   facebook_message_pull(folder = 'messages')
+#'\dontrun{   facebook_message_pull(folder = 'messages')}
 #'
 #' @export
 #'
 #'
 #'
 #'
-
-
+utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSource","get_sentences","get_sentiment","pdf","plot","dev.off",
+                         "png","head","write.table","write.csv","createWorkbook","addWorksheet","createStyle","addStyle","writeData","saveWorkbook",
+                         "write.csv","get_nrc_sentiment","barplot","text","unzip","writeData"))
+#' @export
 facebook_message_pull <- function(folder){
-  library(openxlsx)
+
+  requireNamespace("openxlsx", quietly = TRUE)
 
   filelist <- list.files(path = folder, full.names = TRUE)
 
@@ -106,4 +107,4 @@ facebook_message_pull <- function(folder){
 
 }
 
-
+utils::globalVariables(c(".obj1", "obj2"))

@@ -21,15 +21,18 @@
 #' @name facebook_unzip
 #' @title facebook_unzip
 #' @examples
-#' Load the facebookanalysis library
 #'
 #' library(facebookanalysis)
 #'
-#'   facebook_unzip(path = "./facebook.zip")
+#'\dontrun{   facebook_unzip(path = "./facebook.zip")}
 #'
 #' @export
 
+utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSource","get_sentences","get_sentiment","pdf","plot","dev.off",
+                         "png","head","write.table","write.csv","createWorkbook","addWorksheet","createStyle","addStyle","writeData","saveWorkbook",
+                         "write.csv","get_nrc_sentiment","barplot","text","unzip","writeData"))
 
+#' @export
 facebook_unzip <- function(path){
 ##If directory does not exist create directory. Else if it exists write .txt data to directory
 if(!dir.exists("./facebookmessages")){
