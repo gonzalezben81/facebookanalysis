@@ -17,20 +17,20 @@
 #' pulls the positive and negative percentage of the messages as well.
 #'
 #'
-#' @param data filepath to data
+#' @param text filepath to data
+#' @aliases text
 #' @keywords clean_text
 #' @return Text that has been cleaned e.g. special characters and certain punctuation removed.
 #' @name clean_text
 #' @title clean_text
+#' @usage clean_text(text)
+#' @import tm
 #' @examples
 #'
 #' library(facebookanalysis)
 #'
-#'\dontrun{   clean_text(text)}
+#'\dontrun{clean_text(text)}
 #'
-#' @export
-
-
 utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSource","get_sentences","get_sentiment","pdf","plot","dev.off",
                          "png","head","write.table","write.csv","createWorkbook","addWorksheet","createStyle","addStyle","writeData","saveWorkbook",
                          "write.csv","get_nrc_sentiment","barplot","text","unzip","writeData"))
@@ -41,25 +41,29 @@ clean_text <- function(text){
   text <- text
   cleaned <- tm::stripWhitespace(x = text)
   cleaned <- tm::removePunctuation(x = cleaned)
-  clean <- removeWords(x = cleaned,words = stopwords(kind = 'en'))
+  clean   <- tm::removeWords(x = cleaned,words = stopwords(kind = 'en'))
   clean
   return(clean)
-
-
 }
 
-#' @param data filepath to data
+
+#' @param folder filepath to data
 #' @keywords facebook_sentiment_calculator
 #' @return sentiment analysis
 #' @name facebook_sentiment_calculator
 #' @title facebook_sentiment_calculator
-#' @usage folder
+#' @import tm
+#' @import stringr
+#' @import syuzhet
+#' @usage facebook_sentiment_calculator(folder)
 #' @usage messages
 #' @examples
 #'
 #' library(facebookanalysis)
 #'
-#'\dontrun{   facebook_sentiment_calculator(folder = 'messages')}
+#'\dontrun{facebook_sentiment_calculator(folder = data)}
+#'
+#' @export
 facebook_sentiment_calculator <- function(folder){
 
   # requireNamespace('tm',quietly = TRUE)
@@ -154,9 +158,10 @@ facebook_sentiment_calculator <- function(folder){
 
     }
     ##Render the rmarkdown report
-    rmarkdown::render(input = "~\\R\\win-library\\3.5\\facebookanalysis\\rmd\\facebook.Rmd",params = list(table = value,
-                                                             sentiment = sentimentscores,
-                                                             documents = docs),
+    version <- version_replace(major = version$major,minor = version$minor)
+    rmarkdown::render(input = paste0("~\\R\\win-library\\",version,"\\facebookanalysis\\rmd\\facebook.Rmd"),
+                                                             params = list(table = value,
+                                                             sentiment = sentimentscores),
                       output_file = paste0(name," Rmarkdown"),
                       output_dir = "nrc_sentiment",quiet = TRUE,clean = TRUE)
     ##Print out what facebook report has been rendered

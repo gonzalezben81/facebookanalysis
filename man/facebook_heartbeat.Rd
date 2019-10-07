@@ -4,13 +4,13 @@
 \alias{facebook_heartbeat}
 \title{facebook_heartbeat}
 \usage{
-{facebook_heartbeat(folder = 'messages')}
+facebook_heartbeat(folder)
 }
 \arguments{
-\item{data}{filepath to data}
+\item{folder}{filepath to data}
 }
 \value{
-Sentiment image showing valence of message
+Sentiment image showing valence of message.
 }
 \description{
 Facebook: Heartbeat Creator
@@ -19,15 +19,12 @@ Facebook: Heartbeat Creator
 This function pulls the data from your messages folder created by the facebook_message_pull function.
 The sentiment of the data is then calculated and a "heartbeat" chart is created. The chart spans the entire length of the
 conversation that is present in your messenger data.
-
-\if{html}{\figure{heartbeat.png}{options: width=60\% alt="R logo"}}
-\if{latex}{\figure{heartbeat.png}{options: width=0.5in}}
 }
 \examples{
 
 library(facebookanalysis)
 
-\dontrun{   facebook_heartbeat(folder = 'messages')}
+ \dontrun{facebook_heartbeat(folder = data)}
 
 }
 \keyword{facebook_heartbeat}

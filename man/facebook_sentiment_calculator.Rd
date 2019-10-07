@@ -4,10 +4,10 @@
 \alias{facebook_sentiment_calculator}
 \title{facebook_sentiment_calculator}
 \usage{
-folder
+facebook_sentiment_calculator(folder)
 }
 \arguments{
-\item{data}{filepath to data}
+\item{folder}{filepath to data}
 }
 \value{
 sentiment analysis
@@ -19,6 +19,7 @@ facebook_sentiment_calculator
 
 library(facebookanalysis)
 
-\dontrun{   facebook_sentiment_calculator(folder = 'messages')}
+\dontrun{facebook_sentiment_calculator(folder = data)}
+
 }
 \keyword{facebook_sentiment_calculator}

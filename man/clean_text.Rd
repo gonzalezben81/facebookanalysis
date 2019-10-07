@@ -2,9 +2,13 @@
 % Please edit documentation in R/facebook_sentiment_calculator.R
 \name{clean_text}
 \alias{clean_text}
+\alias{text}
 \title{clean_text}
+\usage{
+clean_text(text)
+}
 \arguments{
-\item{data}{filepath to data}
+\item{text}{filepath to data}
 }
 \value{
 Text that has been cleaned e.g. special characters and certain punctuation removed.
@@ -22,7 +26,7 @@ pulls the positive and negative percentage of the messages as well.
 
 library(facebookanalysis)
 
-\dontrun{   clean_text(text)}
+\dontrun{clean_text(text)}
 
 }
 \keyword{clean_text}

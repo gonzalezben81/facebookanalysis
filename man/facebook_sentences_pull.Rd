@@ -3,8 +3,11 @@
 \name{facebook_sentences_pull}
 \alias{facebook_sentences_pull}
 \title{facebook_sentences_pull}
+\usage{
+facebook_sentences_pull(folder)
+}
 \arguments{
-\item{data}{filepath to data}
+\item{folder}{filepath to data}
 }
 \value{
 facebook sentences
@@ -20,7 +23,7 @@ The sentences are then placed in a csv file and written to the nrc_sentences fol
 
 library(facebookanalysis)
 
-\dontrun{   facebook_sentences_pull(folder = 'messages')}
+\dontrun{facebook_sentences_pull(folder = data)}
 
 }
 \keyword{facebook_sentences_pull}

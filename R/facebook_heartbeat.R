@@ -15,21 +15,22 @@
 #' The sentiment of the data is then calculated and a "heartbeat" chart is created. The chart spans the entire length of the
 #' conversation that is present in your messenger data.
 #'
-#' \if{html}{\figure{heartbeat.png}{options: width=60\% alt="R logo"}}
-#' \if{latex}{\figure{heartbeat.png}{options: width=0.5in}}
 #'
-#' @param data filepath to data
+#' @param folder filepath to data
 #' @keywords facebook_heartbeat
-#' @return Sentiment image showing valence of message
+#' @return Sentiment image showing valence of message.
 #' @name facebook_heartbeat
 #' @aliases facebook_heartbeat
-#' @usage {facebook_heartbeat(folder = 'messages')}
+#' @import tm
+#' @import syuzhet
+#' @import stringr
+#' @usage facebook_heartbeat(folder)
 #' @title facebook_heartbeat
 #' @examples
 #'
 #' library(facebookanalysis)
 #'
-#'\dontrun{   facebook_heartbeat(folder = 'messages')}
+#'  \dontrun{facebook_heartbeat(folder = data)}
 #'
 #' @export
 

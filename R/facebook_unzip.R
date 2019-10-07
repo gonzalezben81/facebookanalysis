@@ -15,16 +15,17 @@
 #' Then the data is placed inside of a facebookmessages folder
 #'
 #'
-#' @param data filepath to data
+#' @param path filepath to data
 #' @keywords facebook_unzip
 #' @return This function pulls the data from your downloaded Facebook zip file.
 #' @name facebook_unzip
 #' @title facebook_unzip
+#' @usage facebook_unzip(path)
 #' @examples
 #'
 #' library(facebookanalysis)
 #'
-#'\dontrun{   facebook_unzip(path = "./facebook.zip")}
+#'\dontrun{facebook_unzip(path = data)}
 #'
 #' @export
 

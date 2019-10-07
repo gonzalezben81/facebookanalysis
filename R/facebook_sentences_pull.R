@@ -15,16 +15,20 @@
 #' The sentences are then placed in a csv file and written to the nrc_sentences folder that is created by the function.
 #'
 #'
-#' @param data filepath to data
+#' @param folder filepath to data
 #' @keywords facebook_sentences_pull
 #' @return facebook sentences
 #' @name facebook_sentences_pull
 #' @title facebook_sentences_pull
+#' @import tm
+#' @import stringr
+#' @import syuzhet
+#' @usage facebook_sentences_pull(folder)
 #' @examples
 #'
 #' library(facebookanalysis)
 #'
-#'\dontrun{   facebook_sentences_pull(folder = 'messages')}
+#'\dontrun{facebook_sentences_pull(folder = data)}
 #'
 #' @export
 
@@ -34,7 +38,6 @@ utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSo
 #' @export
 facebook_sentences_pull <- function(folder){
 
-  # require(tm,quietly = TRUE)
   # requireNamespace('tm',quietly = TRUE)
   # requireNamespace('stringr',quietly = TRUE)
   # requireNamespace('syuzhet',quietly = TRUE)

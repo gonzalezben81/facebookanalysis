@@ -22,11 +22,13 @@
 #' @return facebook message conversation to a .csv file
 #' @name facebook_message_pull
 #' @title facebook_message_pull
+#' @import openxlsx
+#' @usage facebook_message_pull(folder)
 #' @examples
 #'
 #' library(facebookanalysis)
 #'
-#'\dontrun{   facebook_message_pull(folder = 'messages')}
+#'\dontrun{facebook_message_pull(folder = data)}
 #'
 #' @export
 #'

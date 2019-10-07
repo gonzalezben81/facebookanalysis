@@ -3,6 +3,9 @@
 \name{facebook_message_pull}
 \alias{facebook_message_pull}
 \title{facebook_message_pull}
+\usage{
+facebook_message_pull(folder)
+}
 \arguments{
 \item{folder}{filepath to data}
 }
@@ -22,7 +25,7 @@ and converts it and writes the Sender, Time, and Content of the message to an .x
 
 library(facebookanalysis)
 
-\dontrun{   facebook_message_pull(folder = 'messages')}
+\dontrun{facebook_message_pull(folder = data)}
 
 }
 \keyword{facebook_message_pull}
