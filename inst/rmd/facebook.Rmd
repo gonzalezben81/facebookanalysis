@@ -1,17 +1,17 @@
 ---
 title: "Facebook Report"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: " Created: `r format(Sys.time(), '%A %B %d, %Y : %X')`"
 output: pdf_document
 time: !r Sys.time()
 params:
-  set_author: "Someone"
-  set_author_two: "Someone"
   table: NA
   sentiment: NA
+  docs: NA
+  set_author: "Someone"
   # sentences: NA
   # emotions_one: NA
   # emotions_two: NA
-author: "Conversation between `r params$set_author` & `r params$set_author_two`"
+author: "Conversation between You & `r params$set_author`"
 ---
 
 ```{r setup, include=FALSE}
@@ -29,38 +29,35 @@ knitr::opts_chunk$set(comment = NA)
 Facebook Analysis Report
 \end{center}
 \begin{center}
-```{r,echo=FALSE}
-table_one<- params$table
+```{r,echo=FALSE, warning=FALSE}
+ table_one<- params$table
 
+     sentimentscores <- sort(round(colSums(prop.table((table_one[,1:8])))*100,digits = 2),decreasing = TRUE)
+     # print(sentimentscores)
+     ##Create a dataframe that contains the sentiment scores
+     sentimentscores <- as.data.frame(sentimentscores)
+     ##Rename the column names of the sentiment scores
+     colnames(sentimentscores) <- c("Emotional %:")
 
-    value <- get_nrc_sentiment(table_one)
+     ##Rename the row names of the sentiment scores
+     Emotions <- c("anger","anticipation","disgust","fear","joy","sadness",
+                   "surprise","trust")
 
-    # print(value)
-    ##Create
-    # prop.table(value[,1:8])
-    ##Create the sentiment scores table
-    sentimentscores <- sort(round(colSums(prop.table((value[,1:8])))*100,digits = 2),decreasing = TRUE)
-    # print(sentimentscores)
-    ##Create a dataframe that contains the sentiment scores
-    sentimentscores <- as.data.frame(sentimentscores)
-    ##Rename the column names of the sentiment scores
-    colnames(sentimentscores) <- c("Emotional %:")
-
-    ##Rename the row names of the sentiment scores
-    Emotions <- c("anger","anticipation","disgust","fear","joy","sadness",
-                  "surprise","trust")
-    
-# pander::pandoc.table(sentimentscores)
-knitr::kable(sentimentscores)
+ # pander::pandoc.table(sentimentscores)
+ knitr::kable(sentimentscores)
 
 ```
+
 \end{center}
 
-
-```{r,echo=FALSE}
+```{r,echo=FALSE,warning=FALSE}
 table_two <- params$table
-    value <- get_nrc_sentiment(table_two)
-    sentimentscores <- round(colSums(prop.table((value[,1:8])))*100,digits = 2)
+sentiment<- params$sentiment
+    if(is.na(sentiment$Percentages)){
+      print("No bar plot created")
+    }else{
+    # value <- get_nrc_sentiment(table_two)
+    sentimentscores <- round(colSums(prop.table((table_two[,1:8])))*100,digits = 2)
     # print(sentimentscores)
     ##Create a dataframe that contains the sentiment scores
     sentimentscores <- as.data.frame(sentimentscores)
@@ -70,55 +67,55 @@ table_two <- params$table
     ylimers <- c(0,ylim_max)
     # print(ylimers)
     barplot_one<- barplot(
-       colSums(prop.table(value[, 1:8])),
+       sort(colSums(prop.table(table_two[, 1:8])),decreasing = T),
        cex.names = 0.7,
        las = 1,
        main = " Emotional Sentiment by Word",
        col = "lightgreen"
-       ,xlim = c(0,9)
+       ,xlim = c(0,10)
        ,ylim = c(0,.40)
        # ,names.arg = round(x = sort(colSums(prop.table(value[, 1:8]))),digits = 2)
 
      )
-    text(barplot_one, 0,labels = round(colSums(prop.table(value[, 1:8])),digits = 2),cex=1,pos=3)
+    text(barplot_one, 0,labels = sort(round(colSums(prop.table(value[, 1:8])),digits = 2),decreasing = T),cex=1,pos=3)
+    }
 
 ```
 
 \newpage
+
 \begin{center}
-```{r,echo=FALSE}
-table_one<- params$table
+```{r,echo=FALSE, warning=FALSE}
+ table_one<- params$table
 
+     ##Create the sentiment scores table
+     sentimentscores <- sort(round(colSums(prop.table((table_one[,9:10])))*100,digits = 2),decreasing = TRUE)
+     # print(sentimentscores)
+     ##Create a dataframe that contains the sentiment scores
+     sentimentscores <- as.data.frame(sentimentscores)
+     ##Rename the column names of the sentiment scores
+     colnames(sentimentscores) <- c("Emotional %:")
 
-    value <- get_nrc_sentiment(table_one)
+     ##Rename the row names of the sentiment scores
+     Emotions <- c("anger","anticipation","disgust","fear","joy","sadness",
+                   "surprise","trust")
 
-    # print(value)
-    ##Create
-    # prop.table(value[,1:8])
-    ##Create the sentiment scores table
-    sentimentscores <- sort(round(colSums(prop.table((value[,9:10])))*100,digits = 2),decreasing = TRUE)
-    # print(sentimentscores)
-    ##Create a dataframe that contains the sentiment scores
-    sentimentscores <- as.data.frame(sentimentscores)
-    ##Rename the column names of the sentiment scores
-    colnames(sentimentscores) <- c("Emotional %:")
-
-    ##Rename the row names of the sentiment scores
-    Emotions <- c("Positive","Negative")
-    
-# pander::pandoc.table(sentimentscores)
-knitr::kable(sentimentscores)
+ # pander::pandoc.table(sentimentscores)
+ knitr::kable(sentimentscores)
 ```
 \end{center}
 
 
-```{r,echo=FALSE}
+```{r,echo=FALSE,warning=FALSE}
 table_three <- params$table
-value <- get_nrc_sentiment(table_three)
+sentiment<- params$sentiment
+    if(is.na(sentiment$Percentages)){
+      print("No bar plot created")
+    }else{
 # xlim_max <- round(max(table_three))
 # print(xlim_max)
      barplot_one<- barplot(
-        sort(colSums(prop.table(value[, 9:10])),decreasing = TRUE),
+        sort(colSums(prop.table(table_three[, 9:10])),decreasing = TRUE),
         cex.names = 0.7,
         las = 1,
         main = " Emotional Sentiment by Word",
@@ -128,24 +125,22 @@ value <- get_nrc_sentiment(table_three)
         # ,names.arg = round(x = sort(colSums(prop.table(value[, 9:10]))),digits = 2)
 
       )
-text(barplot_one, 0,labels = round(colSums(prop.table(value[, 10:9])),digits = 2),cex=1,pos=3)
-    
+text(barplot_one, 0,labels = sort(round(colSums(prop.table(value[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
+    }
 ```
 
 
-
-
-```{r,echo=FALSE}
-table_three <- params$table
-# value <- get_nrc_sentiment(table_three)
-    s_v <- get_sentences(table_three)
+```{r,echo=FALSE,warning=FALSE}
+    docs<- params$docs
+    s_v <- get_sentences(docs)
     s_v_sentiment <- get_sentiment(s_v)
     plot(
-      s_v_sentiment, 
-      type="l", 
-      main= "Messenger Timeline",
-      xlab = "Messenger Timeline", 
-      ylab= "Emotional Valence",
-      col = 'blue'
+      s_v_sentiment,
+      type="l",
+      main= paste0(name," Messenger Timeline"),
+      xlab = "Messenger Timeline",
+      ylab= "Emotional Valence"
     )
 ```
+
+

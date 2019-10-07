@@ -3,6 +3,7 @@
 export(clean_text)
 export(facebook_heartbeat)
 export(facebook_message_pull)
+export(facebook_report)
 export(facebook_sentences_pull)
 export(facebook_sentiment_calculator)
 export(facebook_unzip)

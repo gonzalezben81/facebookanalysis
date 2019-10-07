@@ -53,15 +53,6 @@ facebook_message_pull <- function(folder){
 
     message_content<- as.character(text_messages$content)
 
-    # text_frame<- jsonlite::fromJSON(txt = paste0(f,'/message_1.json'))
-
-    # text$participants$name
-    # text$thread_type
-    # text$thread_path
-    # text$participants[1,1]
-    # text$participants[2,1]
-    # message_frame<- as.data.frame(text_frame$messages)
-
     text_sender<- text$messages$sender_name
     text_sender_two<- text$messages$sender_name[2]
     text_time<- as.list(head(as.POSIXct(as.integer(as.numeric(as.character(text$messages$timestamp_ms)) / 1000.0),
@@ -76,13 +67,8 @@ facebook_message_pull <- function(folder){
     text_all <- cbind(text_sender,text_time,text_content)
 
     unique_sender_one <- text_all[ which(text_all[,1]==unique_sender[1]), ]
-    # unique_sender_one <- as.data.frame(unique_sender_one)
-    # colnames(unique_sender_one) <- c(text_sender,'Message Content')
 
     unique_sender_two <- text_all[ which(text_all[,1]==unique_sender[2]), ]
-    # unique_sender_two <- as.data.frame(unique_sender_two)
-    # colnames(unique_sender_two) <- c(text_sender_two,'Message Content')
-    # all_unique <- rbind(unique_sender_one,unique_sender_two)
 
     ###If directory does not exist create directory. Else if it exists write .txt data to directory
     if(!dir.exists("./messages")){
@@ -99,13 +85,11 @@ facebook_message_pull <- function(folder){
       addStyle(wb = wb,sheet =  1, style = sty,rows = 1, cols = 1, gridExpand = TRUE)
       writeData(wb = wb, "Facebook Data", text_all, startRow = 1,startCol = 1)
       saveWorkbook(wb, file = paste0("./messages/FacebookDataDownload",name,".xlsx"), overwrite = TRUE)
-      # write.csv(x = unique_sender_two,file = paste0('./messages/',name,'_',text_sender_two,'.csv'))
+
     }
 
     print(paste0(name," facebook messages created."))
   }
-  # return(message_content)
-  # print(paste0(name," facebook messages created."))
 
 }
 
