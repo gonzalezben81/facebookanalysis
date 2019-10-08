@@ -112,7 +112,7 @@ sentiment<- params$sentiment
     if(is.na(sentiment$Percentages)){
       print("No bar plot created")
     }else{
-     barplot_one<- barplot(
+     barplot_two<- barplot(
         sort(colSums(prop.table(table_three[, 9:10])),decreasing = TRUE),
         cex.names = 0.7,
         las = 1,
@@ -123,7 +123,7 @@ sentiment<- params$sentiment
         # ,names.arg = round(x = sort(colSums(prop.table(value[, 9:10]))),digits = 2)
 
       )
-# text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
+text(barplot_two, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
     }
 ```
 

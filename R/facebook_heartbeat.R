@@ -60,8 +60,8 @@ facebook_heartbeat <- function(folder){
     # print(paste0(file_name," printed"))
     ##Get NRC Sentiment from the ith (f) text file
     ##If directory does not exist create directory. Else if it exists write .txt data to directory
-    if(!dir.exists("./nrc_heartbeat")){
-      dir.create("./nrc_heartbeat")
+    if(!dir.exists("./heartbeat")){
+      dir.create("./heartbeat")
     }else{
       ##Create the file name from the filelist and name the .csv file this way
       # name<- gsub(pattern = './messages',replacement = "",x = file_name)
@@ -73,7 +73,7 @@ facebook_heartbeat <- function(folder){
     name<- gsub(pattern = './messages',replacement = "",x = file_name)
     name <- gsub(pattern = ".txt*",replacement = "",x = name)
     name <- gsub(pattern = "/",replacement = "",x = name)
-    myfile_path<- file.path(".","nrc_heartbeat",paste0(name,"timeline heartbeat.pdf"))
+    myfile_path<- file.path(".","heartbeat",paste0(name,"timeline heartbeat.pdf"))
     pdf(file = myfile_path)
     plot(
       s_v_sentiment,
@@ -84,7 +84,7 @@ facebook_heartbeat <- function(folder){
     )
     dev.off()
 
-    myfile_path<- file.path(".","nrc_heartbeat",paste0(name,"timeline heartbeat.png"))
+    myfile_path<- file.path(".","heartbeat",paste0(name,"timeline heartbeat.png"))
     png(file = myfile_path)
     plot(
       s_v_sentiment,
