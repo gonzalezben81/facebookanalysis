@@ -10,11 +10,6 @@ Description: Allows a user to quantify the emotions present in messages utilized
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-<<<<<<< HEAD
 Imports: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown, kableExtra, knitr, ggplot2
 Depends: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown, kableExtra, knitr, ggplot2
-=======
-Imports: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown, kableExtra, knitr, ggplot2, dplyr
-Depends: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown, kableExtra, knitr, ggplot2, dplyr
->>>>>>> 4a379771504f24db8a9aa3795c1667d491ccdb94
 RoxygenNote: 6.1.1
