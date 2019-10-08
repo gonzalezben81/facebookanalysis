@@ -146,14 +146,9 @@ facebook_sentiment_calculator <- function(folder){
                   "surprise","trust")
 
     ##If directory does not exist create directory. Else if it exists write .txt data to directory
-<<<<<<< HEAD
-    if(!dir.exists("./sentiment")){
-      dir.create("./sentiment")
-=======
     if(!dir.exists("./nrc_sentiment")||!dir.exists('./image')){
       dir.create("./nrc_sentiment")
       dir.create("./image")
->>>>>>> f0fb0a5256e8da3b48465470dd6806fed19d22e0
     }else{
       ##Create the file name from the filelist and name the .csv file this way
       name<- gsub(pattern = './messages',replacement = "",x = file_name)
