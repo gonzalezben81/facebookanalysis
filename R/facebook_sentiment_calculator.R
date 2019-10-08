@@ -1,3 +1,45 @@
+# version_replace
+#
+# You can learn more about package authoring with RStudio at:
+#
+#   http://r-pkgs.had.co.nz/
+#
+# Some useful keyboard shortcuts for package authoring:
+#
+#   Build and Reload Package:  'Ctrl + Shift + B'
+#   Check Package:             'Ctrl + Shift + E'
+#   Test Package:   'Ctrl + Shift + T'
+#' @param major major version of R
+#' @param minor minor version of R
+#' @keywords version_replace
+#' @name version_replace
+#' @title version_replace
+#' @examples
+#'
+#'
+#'   version_replace(major = 'major',minor = 'minor')
+#'
+#' @export
+
+
+
+version_replace <- function(major,minor){
+  
+  major <- major
+  minor <- minor
+  
+  version_major<- major
+  
+  version_minor<- gsub("\\..*","",minor)
+  
+  version <- paste(version_major,version_minor,sep = '.',collapse = "")
+  
+  version<- as.name(version)
+  
+  return(version)
+  
+}
+
 # facebook_sentiment_calculator
 #
 # You can learn more about package authoring with RStudio at:
@@ -72,6 +114,7 @@ facebook_sentiment_calculator <- function(folder){
   
   filelist <- list.files(path = paste0("./",folder),pattern = '.txt', full.names = TRUE)
   # print(filelist)
+  version_type <- version_replace(major = version$major,minor = version$minor)
   for(f in 1:length(filelist)){
     ##Find the file path to the folder the facebook messages are in
     text_file_path <- file.path(paste0("./",folder))  
@@ -133,7 +176,7 @@ facebook_sentiment_calculator <- function(folder){
         col = "blue"
       )
       ##Add text to the barplot that has been created
-      text(barplot_two, 0, round(sort(colSums(prop.table(value[, 9:10]))), 2),cex=1,pos=3) 
+      text(barplot_two, 0, round(sort(colSums(prop.table(barplot_two[, 9:10]))), 2),cex=1,pos=3) 
       # Close the pdf file
       dev.off() 
       myfile_path<- file.path(".","image",paste0(name," Emotional Sentiment.pdf"))
@@ -149,15 +192,15 @@ facebook_sentiment_calculator <- function(folder){
         col = "lightgreen"
         
       )
-      text(barplot_one, 0, round(sort(colSums(prop.table(value[, 1:8]))), 2),cex=1,pos=3) 
+      text(barplot_one, 0, round(sort(colSums(prop.table(barplot_one[, 1:8]))), 2),cex=1,pos=3) 
       dev.off() 
       
       
       
     }
     ##Render the rmarkdown report
-    version <- version_replace(major = version$major,minor = version$minor)
-    rmarkdown::render(input = paste0("~\\R\\win-library\\",version,"\\facebookanalysis\\rmd\\facebook.Rmd"),
+    
+    rmarkdown::render(input = paste0("~\\R\\win-library\\",version_type,"\\facebookanalysis\\rmd\\facebook.Rmd"),
                                                             ###Parameters used in the Rmarkdown PDF Report
                                                              params = list(table = value,
                                                              docs = docs,

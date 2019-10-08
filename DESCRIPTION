@@ -1,7 +1,7 @@
 Package: facebookanalysis
 Type: Package
 Title: Analyses the emotional sentiment of Facebook message data
-Version: 0.1.1
+Version: 0.1.4
 Author: Ben Gonzalez
 Maintainer: Ben Gonzalez <gonzalezben81@gmail.com>
 Description: Allows a user to quantify the emotions present in messages utilized in social media. The package pulls
@@ -10,5 +10,5 @@ Description: Allows a user to quantify the emotions present in messages utilized
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown
+Imports: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown, kableExtra
 RoxygenNote: 6.1.1

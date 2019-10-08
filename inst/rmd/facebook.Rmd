@@ -77,7 +77,7 @@ sentiment<- params$sentiment
        # ,names.arg = round(x = sort(colSums(prop.table(value[, 1:8]))),digits = 2)
 
      )
-    text(barplot_one, 0,labels = sort(round(colSums(prop.table(value[, 1:8])),digits = 2),decreasing = T),cex=1,pos=3)
+    text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_two[, 1:8])),digits = 2),decreasing = T),cex=1,pos=3)
     }
 
 ```
@@ -112,8 +112,6 @@ sentiment<- params$sentiment
     if(is.na(sentiment$Percentages)){
       print("No bar plot created")
     }else{
-# xlim_max <- round(max(table_three))
-# print(xlim_max)
      barplot_one<- barplot(
         sort(colSums(prop.table(table_three[, 9:10])),decreasing = TRUE),
         cex.names = 0.7,
@@ -125,7 +123,7 @@ sentiment<- params$sentiment
         # ,names.arg = round(x = sort(colSums(prop.table(value[, 9:10]))),digits = 2)
 
       )
-text(barplot_one, 0,labels = sort(round(colSums(prop.table(value[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
+# text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
     }
 ```
 

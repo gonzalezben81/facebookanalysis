@@ -45,6 +45,7 @@ utils::globalVariables(c("clean_text", "removeWords","stopwords","Corpus","DirSo
 facebook_report <- function(folder){
   
   filelist <- list.files(path = paste0("./",folder),pattern = '.txt', full.names = TRUE)
+  version_type <- version_replace(major = version$major,minor = version$minor)
   # print(filelist)
   for(f in 1:length(filelist)){
     ##Find the file path to the folder the facebook messages are in
@@ -91,8 +92,7 @@ facebook_report <- function(folder){
     name <- gsub(pattern = "/",replacement = "",x = name)
     
     ##Render the rmarkdown report
-    version <- version_replace(major = version$major,minor = version$minor)
-    rmarkdown::render(input = paste0("~\\R\\win-library\\",version,"\\facebookanalysis\\rmd\\facebook.Rmd"),
+    rmarkdown::render(input = paste0("~\\R\\win-library\\",version_type,"\\facebookanalysis\\rmd\\facebook.Rmd"),
                       ###Parameters used in the Rmarkdown PDF Report
                                                              params = list(table = value,
                                                              docs = docs,
