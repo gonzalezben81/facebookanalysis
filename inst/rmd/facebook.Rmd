@@ -21,6 +21,8 @@ library(jsonlite)
 library(ggplot2)
 library(knitr)
 library(kableExtra)
+
+
 # knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(comment = NA)
 ```
@@ -34,17 +36,21 @@ Facebook Analysis Report
 
      sentimentscores <- sort(round(colSums(prop.table((table_one[,1:8])))*100,digits = 2),decreasing = TRUE)
      # print(sentimentscores)
-     ##Create a dataframe that contains the sentiment scores
+     #Create a dataframe that contains the sentiment scores
      sentimentscores <- as.data.frame(sentimentscores)
-     ##Rename the column names of the sentiment scores
-     colnames(sentimentscores) <- c("Emotional %:")
+     #Rename the column names of the sentiment scores
+     colnames(sentimentscores) <- c("Emotional %")
 
      ##Rename the row names of the sentiment scores
      Emotions <- c("anger","anticipation","disgust","fear","joy","sadness",
                    "surprise","trust")
 
- # pander::pandoc.table(sentimentscores)
- knitr::kable(sentimentscores)
+ # table<- xtable(table_one)
+ # print(sort(round(colSums(prop.table((table_one[,1:8])))*100,digits = 2),decreasing = TRUE))
+ # kable(sentimentscores)
+ 
+
+kable(sentimentscores, "latex")
 
 ```
 
@@ -56,28 +62,15 @@ sentiment<- params$sentiment
     if(is.na(sentiment$Percentages)){
       print("No bar plot created")
     }else{
-    # value <- get_nrc_sentiment(table_two)
-    sentimentscores <- round(colSums(prop.table((table_two[,1:8])))*100,digits = 2)
-    # print(sentimentscores)
-    ##Create a dataframe that contains the sentiment scores
-    sentimentscores <- as.data.frame(sentimentscores)
-    # print(ceiling(max(sentimentscores)))
-    ylim_max <- ceiling(max(sentimentscores,na.rm = TRUE))
-    # # ylim_max <- as.data.frame(sentimentscores,)
-    ylimers <- c(0,ylim_max)
-    # print(ylimers)
-    barplot_one<- barplot(
-       sort(colSums(prop.table(table_two[, 1:8])),decreasing = T),
-       cex.names = 0.7,
-       las = 1,
-       main = " Emotional Sentiment by Word",
-       col = "lightgreen"
-       ,xlim = c(0,10)
-       ,ylim = c(0,.40)
-       # ,names.arg = round(x = sort(colSums(prop.table(value[, 1:8]))),digits = 2)
+     barplot_one<- barplot(
+        sort(colSums(prop.table(table_two[, 1:8])),decreasing = T),
+        cex.names = 0.7,
+        las = 1,
+        main = paste0(" Emotional Sentiment by Word"),
+        col = "lightgreen"
 
-     )
-    text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_two[, 1:8])),digits = 2),decreasing = T),cex=1,pos=3)
+      )
+     text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_two[, 1:8])),digits =2),decreasing = TRUE),cex=1,pos=3)
     }
 
 ```
@@ -85,6 +78,7 @@ sentiment<- params$sentiment
 \newpage
 
 \begin{center}
+
 ```{r,echo=FALSE, warning=FALSE}
  table_one<- params$table
 
@@ -94,14 +88,13 @@ sentiment<- params$sentiment
      ##Create a dataframe that contains the sentiment scores
      sentimentscores <- as.data.frame(sentimentscores)
      ##Rename the column names of the sentiment scores
-     colnames(sentimentscores) <- c("Emotional %:")
+     colnames(sentimentscores) <- c("Emotional %")
 
      ##Rename the row names of the sentiment scores
-     Emotions <- c("anger","anticipation","disgust","fear","joy","sadness",
-                   "surprise","trust")
+     Emotions <- c("Positive","Negative")
 
- # pander::pandoc.table(sentimentscores)
- knitr::kable(sentimentscores)
+  # pander::pandoc.table(sentimentscores)
+kable(sentimentscores, "latex")
 ```
 \end{center}
 
@@ -116,14 +109,14 @@ sentiment<- params$sentiment
         sort(colSums(prop.table(table_three[, 9:10])),decreasing = TRUE),
         cex.names = 0.7,
         las = 1,
-        main = " Emotional Sentiment by Word",
+        main = " Emotional Sentiment by Word: Positive Vs. Negative",
         col = "lightgreen"
         ,xlim = c(0,3)
         ,ylim = c(0,1)
         # ,names.arg = round(x = sort(colSums(prop.table(value[, 9:10]))),digits = 2)
 
       )
-text(barplot_two, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
+text(barplot_two, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits =2),decreasing = TRUE),cex=1,pos=3)
     }
 ```
 
