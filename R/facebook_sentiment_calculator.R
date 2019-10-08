@@ -205,7 +205,7 @@ facebook_sentiment_calculator <- function(folder){
                                                              sentiment = sentimentscores,
                                                              set_author = name),
                       output_file = paste0(name," Rmarkdown"),
-                      output_dir = "sentiment",quiet = TRUE,clean = TRUE)
+                      output_dir = "nrc_sentiment",quiet = TRUE,clean = TRUE)
     ##Print out what facebook report has been rendered
     print(paste0("Facebook Analysis Report for ",paste0(name," pdf file created")))
     ##Print the name of the facebook sentiment scores being created
