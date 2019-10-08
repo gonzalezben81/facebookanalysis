@@ -56,30 +56,17 @@ sentiment<- params$sentiment
     if(is.na(sentiment$Percentages)){
       print("No bar plot created")
     }else{
-    # value <- get_nrc_sentiment(table_two)
-    sentimentscores <- round(colSums(prop.table((table_two[,1:8])))*100,digits = 2)
-    # print(sentimentscores)
-    ##Create a dataframe that contains the sentiment scores
-    sentimentscores <- as.data.frame(sentimentscores)
-    # print(ceiling(max(sentimentscores)))
-    ylim_max <- ceiling(max(sentimentscores,na.rm = TRUE))
-    # # ylim_max <- as.data.frame(sentimentscores,)
-    ylimers <- c(0,ylim_max)
-    # print(ylimers)
-    barplot_one<- barplot(
-       sort(colSums(prop.table(table_two[, 1:8])),decreasing = T),
-       cex.names = 0.7,
-       las = 1,
-       main = " Emotional Sentiment by Word",
-       col = "lightgreen"
-       ,xlim = c(0,10)
-       ,ylim = c(0,.40)
-       # ,names.arg = round(x = sort(colSums(prop.table(value[, 1:8]))),digits = 2)
+     barplot_one<- barplot(
+        sort(colSums(prop.table(table_two[, 1:8]))),
+        cex.names = 0.7,
+        las = 1,
+        main = paste0(toupper(name)," Emotional Sentiment by Word"),
+        col = "lightgreen"
 
-     )
-    text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_two[, 1:8])),digits = 2),decreasing = T),cex=1,pos=3)
+      )
+     text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits =2),decreasing = TRUE),cex=1,pos=3)
     }
-
+```
 ```
 
 \newpage
@@ -123,7 +110,7 @@ sentiment<- params$sentiment
         # ,names.arg = round(x = sort(colSums(prop.table(value[, 9:10]))),digits = 2)
 
       )
-text(barplot_two, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits = 2),decreasing = TRUE),cex=1,pos=3)
+text(barplot_two, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits =2),decreasing = TRUE),cex=1,pos=3)
     }
 ```
 
