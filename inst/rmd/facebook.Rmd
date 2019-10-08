@@ -79,7 +79,6 @@ sentiment<- params$sentiment
     }
 
 ```
-```
 
 \newpage
 
