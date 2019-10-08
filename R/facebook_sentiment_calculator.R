@@ -146,8 +146,14 @@ facebook_sentiment_calculator <- function(folder){
                   "surprise","trust")
 
     ##If directory does not exist create directory. Else if it exists write .txt data to directory
+<<<<<<< HEAD
     if(!dir.exists("./sentiment")){
       dir.create("./sentiment")
+=======
+    if(!dir.exists("./nrc_sentiment")||!dir.exists('./image')){
+      dir.create("./nrc_sentiment")
+      dir.create("./image")
+>>>>>>> f0fb0a5256e8da3b48465470dd6806fed19d22e0
     }else{
       ##Create the file name from the filelist and name the .csv file this way
       name<- gsub(pattern = './messages',replacement = "",x = file_name)
@@ -176,7 +182,7 @@ facebook_sentiment_calculator <- function(folder){
         col = "blue"
       )
       ##Add text to the barplot that has been created
-      text(barplot_two, 0, round(sort(colSums(prop.table(barplot_two[, 9:10]))), 2),cex=1,pos=3) 
+      text(barplot_two, 0, round(sort(colSums(prop.table(value[,9:10]))), 2),cex=1,pos=3) 
       # Close the pdf file
       dev.off() 
       myfile_path<- file.path(".","image",paste0(name," Emotional Sentiment.pdf"))
@@ -192,11 +198,8 @@ facebook_sentiment_calculator <- function(folder){
         col = "lightgreen"
         
       )
-      text(barplot_one, 0, round(sort(colSums(prop.table(barplot_one[, 1:8]))), 2),cex=1,pos=3) 
+      text(barplot_one, 0, round(sort(colSums(prop.table(value[, 1:8]))), 2),cex=1,pos=3) 
       dev.off() 
-      
-      
-      
     }
     ##Render the rmarkdown report
     
