@@ -27,6 +27,11 @@
 #' @import tm
 #' @import stringr
 #' @import syuzhet
+#' @import ggplot2
+#' @import jsonlite
+#' @import kableExtra
+#' @import knitr
+#' @import rmarkdown
 #' @usage facebook_report(folder)
 #' @usage messages
 #' @examples
@@ -63,7 +68,7 @@ facebook_report <- function(folder){
     value <- get_nrc_sentiment(docs)
     # print(value)
     ##Create
-    value <- na.omit(value)
+    value <- value[is.na(value)] <- 0
     prop.table(value[,1:8])
     ##Create the sentiment scores table
     sentimentscores <- round(colSums(prop.table((value[,1:8])))*100,digits = 1)

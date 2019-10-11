@@ -23,6 +23,12 @@
 #' @name facebook_message_pull
 #' @title facebook_message_pull
 #' @import openxlsx
+#' @import tm
+#' @import ggplot2
+#' @import jsonlite
+#' @import kableExtra
+#' @import knitr
+#' @import rmarkdown
 #' @usage facebook_message_pull(folder)
 #' @examples
 #'

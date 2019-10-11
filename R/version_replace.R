@@ -9,15 +9,18 @@
 #   Build and Reload Package:  'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:   'Ctrl + Shift + T'
-#' @param major major version of R
-#' @param minor minor version of R
+#' @param major version of R
+#' @aliases version$major
+#' @param minor version of R
+#' @aliases version$minor
+#' @usage version_replace(major,minor)
 #' @keywords version_replace
 #' @name version_replace
 #' @title version_replace
 #' @examples
 #'
 #'
-#'   version_replace(major = 'major',minor = 'minor')
+#'   version_replace(major = version$major,minor = version$minor)
 #'
 #' @export
 

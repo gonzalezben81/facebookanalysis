@@ -63,17 +63,13 @@ sentiment<- params$sentiment
       print("No bar plot created")
     }else{
      barplot_one<- barplot(
-        sort(colSums(prop.table(table_two[, 1:8]))),
+        sort(round(colSums(prop.table(table_two[, 1:8])),digits =2),decreasing = TRUE),
         cex.names = 0.7,
         las = 1,
-        main = paste0(toupper(name)," Emotional Sentiment by Word"),
+        main = " Emotional Sentiment by Word: 8 Basic Human Emotions",
         col = "lightgreen",
-        sort(colSums(prop.table(table_two[, 1:8])),decreasing = T),
-        cex.names = 0.7,
-        las = 1,
-        main = paste0(" Emotional Sentiment by Word"),
-        col = "lightgreen"
-
+        xlim = c(0,11),
+        ylim = c(0,1)
       )
      text(barplot_one, 0,labels = sort(round(colSums(prop.table(table_two[, 1:8])),digits =2),decreasing = TRUE),cex=1,pos=3)
     }
@@ -88,7 +84,7 @@ sentiment<- params$sentiment
  table_one<- params$table
 
      ##Create the sentiment scores table
-     sentimentscores <- sort(round(colSums(prop.table((table_one[,9:10])))*100,digits = 2),decreasing = TRUE)
+     sentimentscores <- sort(round(colSums(prop.table((table_one[,9:10]))),digits = 2),decreasing = TRUE)
      # print(sentimentscores)
      ##Create a dataframe that contains the sentiment scores
      sentimentscores <- as.data.frame(sentimentscores)
@@ -104,26 +100,29 @@ kable(sentimentscores, "latex")
 \end{center}
 
 
+
 ```{r,echo=FALSE,warning=FALSE}
 table_three <- params$table
 sentiment<- params$sentiment
     if(is.na(sentiment$Percentages)){
       print("No bar plot created")
     }else{
-     barplot_two<- barplot(
+# xlim_max <- round(max(table_three))
+     barplot_one<- barplot(
         sort(colSums(prop.table(table_three[, 9:10])),decreasing = TRUE),
         cex.names = 0.7,
         las = 1,
-        main = " Emotional Sentiment by Word: Positive Vs. Negative",
-        col = "lightgreen"
+        main = " Emotional Sentiment by Word",
+        col= "lightgreen"
         ,xlim = c(0,3)
         ,ylim = c(0,1)
-        # ,names.arg = round(x = sort(colSums(prop.table(value[, 9:10]))),digits = 2)
+        # ,legend.text = sort(round(colSums(prop.table(table_three[, 9:10])),digits = 2),decreasing = TRUE)
 
       )
-text(barplot_two, 0,labels = sort(round(colSums(prop.table(table_three[, 9:10])),digits =2),decreasing = TRUE),cex=1,pos=3)
+# text(barplot_one, 0,labels = sort(colSums(prop.table(table_three[, 9:10])),decreasing = TRUE),cex=1,pos=3)
     }
 ```
+
 
 
 ```{r,echo=FALSE,warning=FALSE}
