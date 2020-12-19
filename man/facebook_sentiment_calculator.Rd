@@ -5,6 +5,8 @@
 \title{facebook_sentiment_calculator}
 \usage{
 facebook_sentiment_calculator(folder)
+
+messages
 }
 \arguments{
 \item{folder}{filepath to data}

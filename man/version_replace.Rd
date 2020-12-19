@@ -3,6 +3,7 @@
 \name{version_replace}
 \alias{version_replace}
 \alias{version$major}
+\alias{version$minor}
 \title{version_replace}
 \usage{
 version_replace(major,minor)
