@@ -3,6 +3,7 @@
 Facebookanalysis allows a user to retrieve and quanitfy the emotions present within their Facebook messenger data. The package retrieves the messages from the downloadable json file from their account. The package will unpackage the data and make it more human readable for the user. The data is able to be exported to a csv file as well as have an rmarkdown pdf file created for each conversation the user downloads. 
 
 
+
 ### How to pull the message data from your downloaded .zip file.
 
 This function allows you to pull the data from the **.zip** file that Facebook generates for you. This function will pull the data and create a new folder/directory called **facebookmessages** where your data will have been extracted to.
