@@ -28,17 +28,15 @@
 
 version_replace <- function(major,minor){
   
-  major <- major
-  minor <- minor
   
   version_major<- major
   
   version_minor<- gsub("\\..*","",minor)
   
-  version <- paste(version_major,version_minor,sep = '.',collapse = "")
+  version_replacement <- paste(version_major,version_minor,sep = '.',collapse = "")
   
-  version<- as.name(version)
+  version_replaced<- as.name(version_replacement)
   
-  return(version)
+  return(version_replaced)
   
 }

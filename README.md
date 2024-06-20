@@ -1,7 +1,6 @@
 <!-- badges: start -->
 
-[![codecov](https://codecov.io/github/gonzalezben81/facebookanalysis/graph/badge.svg?token=ZG5GOJ6FOF)](https://codecov.io/github/gonzalezben81/facebookanalysis)
-![GitHub](https://img.shields.io/github/license/gonzalezben81/repo)
+[![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![R-CMD-check](https://github.com/gonzalezben81/facebookanalysis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gonzalezben81/facebookanalysis/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
