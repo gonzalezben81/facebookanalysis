@@ -2,7 +2,9 @@ Package: facebookanalysis
 Type: Package
 Title: Analyses the emotional sentiment of Facebook message data
 Version: 0.1.6
-Author: Ben Gonzalez
+Authors@R: c(
+    person("Ben", "Gonzalez", , "gonzalezben393@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0008-6307-5161")))
 Maintainer: Ben Gonzalez <gonzalezben81@outlook.com>
 Description: Allows a user to quantify the emotions present in messages utilized in social media. The package pulls
               the data and then utilizes natural language processing for an individual to visualize and collect the conversation data
@@ -12,3 +14,5 @@ Encoding: UTF-8
 LazyData: true
 Imports: tm, stringr, syuzhet, openxlsx, jsonlite, rmarkdown, kableExtra, knitr, ggplot2
 RoxygenNote: 7.3.1
+URL: https://github.com/gonzalezben81/facebookanalysis
+BugReports: https://github.com/gonzalezben81/facebookanalysis/issues

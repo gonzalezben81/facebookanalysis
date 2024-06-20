@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/404.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/index.html</loc>
   </url>
   <url>
-    <loc>/reference/clean_text.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/clean_text.html</loc>
   </url>
   <url>
-    <loc>/reference/facebook_heartbeat.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/facebook_heartbeat.html</loc>
   </url>
   <url>
-    <loc>/reference/facebook_message_pull.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/facebook_message_pull.html</loc>
   </url>
   <url>
-    <loc>/reference/facebook_report.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/facebook_report.html</loc>
   </url>
   <url>
-    <loc>/reference/facebook_sentences_pull.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/facebook_sentences_pull.html</loc>
   </url>
   <url>
-    <loc>/reference/facebook_sentiment_calculator.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/facebook_sentiment_calculator.html</loc>
   </url>
   <url>
-    <loc>/reference/facebook_unzip.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/facebook_unzip.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/sentiment_extractor.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/sentiment_extractor.html</loc>
   </url>
   <url>
-    <loc>/reference/version_replace.html</loc>
+    <loc>https://gonzalezben81.github.io/facebookanalysis/reference/version_replace.html</loc>
   </url>
 </urlset>
