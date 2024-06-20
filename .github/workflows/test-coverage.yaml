@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -29,9 +29,9 @@ jobs:
       run: |
         Sys.setenv(CI = TRUE)
         devtools::check()
-
-    - name: Upload coverage to Codecov
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
       run: Rscript -e 'covr::codecov()'
