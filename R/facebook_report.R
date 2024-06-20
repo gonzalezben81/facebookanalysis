@@ -33,7 +33,6 @@
 #' @import knitr
 #' @import rmarkdown
 #' @usage facebook_report(folder)
-#' @usage messages
 #' @examples
 #'
 #' library(facebookanalysis)

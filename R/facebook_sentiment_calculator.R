@@ -61,7 +61,6 @@ clean_text <- function(text){
 #' @import stringr
 #' @import syuzhet
 #' @usage facebook_sentiment_calculator(folder)
-#' @usage messages
 #' @examples
 #'
 #' library(facebookanalysis)

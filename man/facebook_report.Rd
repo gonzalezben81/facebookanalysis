@@ -8,8 +8,6 @@
 facebook_report(folder)
 
 facebook_report(folder)
-
-messages
 }
 \arguments{
 \item{folder}{filepath to data}
