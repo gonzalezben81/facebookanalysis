@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/username/repo/branch/main/graph/badge.svg)](https://codecov.io/gh/gonzalezben81/repo)
 ![GitHub](https://img.shields.io/github/license/gonzalezben81/repo)
 ![npm](https://img.shields.io/R/v/facebookanalysis)
+[![R-CMD-check](https://github.com/gonzalezben81/facebookanalysis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gonzalezben81/facebookanalysis/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 
