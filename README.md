@@ -1,6 +1,5 @@
 <!-- badges: start -->
 
-[![Build Status](https://github.com/username/repo/actions/workflows/workflow.yml/badge.svg)](https://github.com/username/repo/actions/workflows/workflow.yml)
 [![codecov](https://codecov.io/gh/username/repo/branch/main/graph/badge.svg)](https://codecov.io/gh/gonzalezben81/repo)
 ![GitHub](https://img.shields.io/github/license/gonzalezben81/repo)
 ![npm](https://img.shields.io/R/v/facebookanalysis)
