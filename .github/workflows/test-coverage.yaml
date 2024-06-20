@@ -34,4 +34,8 @@ jobs:
       uses: codecov/codecov-action@v4.0.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-      run: Rscript -e 'covr::codecov()'
+      
+    - name: Upload coverage to Codecov
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: Rscript -e 'covr::codecov()'      
